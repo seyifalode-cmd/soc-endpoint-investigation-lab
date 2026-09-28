@@ -1,0 +1,27 @@
+title: PowerShell Launching Discovery Utilities
+id: 609f59e9-dcb9-5e2e-8813-5a3893c9ee8c
+status: experimental
+description: Detects PowerShell launching whoami.exe or ipconfig.exe in the Project 2 lab.
+author: Oluwaseyi Falode
+date: 2026-09-28
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection_parent:
+    ParentImage|endswith:
+      - '\powershell.exe'
+      - '\pwsh.exe'
+  selection_child:
+    Image|endswith:
+      - '\whoami.exe'
+      - '\ipconfig.exe'
+  condition: selection_parent and selection_child
+falsepositives:
+  - Approved administration and troubleshooting
+level: medium
+tags:
+  - attack.discovery
+  - attack.t1033
+  - attack.t1016
+  - attack.t1059.001

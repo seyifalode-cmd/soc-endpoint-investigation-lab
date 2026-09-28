@@ -1,0 +1,34 @@
+LOCAL STATIC AND SYNTHETIC QA — NOT SIGMA-ENGINE EXECUTION
+Python: 3.12.14 | PyYAML: 6.0.3
+PASS YAML/core fields/UUID: powershell-discovery.yml
+PASS YAML/core fields/UUID: powershell-network.yml
+PASS YAML/core fields/UUID: powershell-temp-file.yml
+PASS XML structure (not live Sysmon acceptance)
+PASS synthetic selector case: direct PowerShell to whoami -> True
+PASS synthetic selector case: direct PowerShell to ipconfig -> True
+PASS synthetic selector case: pwsh parent -> True
+PASS synthetic selector case: case-insensitive paths -> True
+PASS synthetic selector case: CMD immediate parent does not match -> False
+PASS synthetic selector case: Notepad child does not match -> False
+PASS synthetic selector case: missing parent -> False
+PASS synthetic selector case: wrong event category -> False
+PASS synthetic selector case: user Temp script -> True
+PASS synthetic selector case: Windows Temp also matches original broad rule -> True
+PASS synthetic selector case: pwsh executable creation -> True
+PASS synthetic selector case: text file excluded -> False
+PASS synthetic selector case: non-Temp path -> False
+PASS synthetic selector case: different creating process -> False
+PASS synthetic selector case: missing filename -> False
+PASS synthetic selector case: suffix after extension -> False
+PASS synthetic selector case: PowerShell initiated connection -> True
+PASS synthetic selector case: pwsh initiated connection -> True
+PASS synthetic selector case: destination and port are not restricted -> True
+PASS synthetic selector case: non-initiated connection -> False
+PASS synthetic selector case: svchost does not match -> False
+PASS synthetic selector case: missing initiated -> False
+PASS synthetic selector case: boolean needs explicit backend mapping -> False
+PASS synthetic selector case: wrong event category for network -> False
+PASS original PDF and 15 extracted-image hashes
+PASS local Markdown file links
+PASS: 3 rule files; 1 XML config; 24 synthetic cases; source integrity; document links
+Not performed: Windows execution, Sigma semantic/backend validation, SIEM alerts, production measurement.

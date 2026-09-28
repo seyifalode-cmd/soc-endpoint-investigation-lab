@@ -1,0 +1,100 @@
+{
+  "source_pdf": {
+    "path": "docs/Project-2-Endpoint-Investigation-Build-Along.pdf",
+    "sha256": "8604658b264eae45c3d250abadcfb54d75ec9dac070e1eccb59e15ba591ed142",
+    "bytes": 2122503,
+    "pages": 32
+  },
+  "figures": [
+    {
+      "path": "screenshots/01-utm-setup.jpg",
+      "source_page": 5,
+      "embedded_image": "Image42.jpg",
+      "sha256": "edf39ab395fea22ec05a5ddb3c2d208798105478d37059ca1331393d7544f040"
+    },
+    {
+      "path": "screenshots/02-sysmon-service.jpg",
+      "source_page": 8,
+      "embedded_image": "Image51.jpg",
+      "sha256": "90d93d083349eef455e3767adbc4d8978c1aef73423d5ec90c5e8d17b8c5463d"
+    },
+    {
+      "path": "screenshots/03-process-lineage.jpg",
+      "source_page": 11,
+      "embedded_image": "Image66.jpg",
+      "sha256": "1041e0d6a76501a2d86d3ffa640558371a034961272ca0c61aea0fc43b05e5f0"
+    },
+    {
+      "path": "screenshots/04-ipconfig-parent.jpg",
+      "source_page": 13,
+      "embedded_image": "Image76.jpg",
+      "sha256": "826489f40e88561fcf1e4d6005caffcf251c25a06f28261784bef7218fea2199"
+    },
+    {
+      "path": "screenshots/05-file-telemetry-gap.jpg",
+      "source_page": 14,
+      "embedded_image": "Image79.jpg",
+      "sha256": "1102030180c898bed48b40e2d680a75b5326139f97a994a180de79f93a6f395d"
+    },
+    {
+      "path": "screenshots/06-initial-configuration.jpg",
+      "source_page": 15,
+      "embedded_image": "Image82.jpg",
+      "sha256": "34bcd0757bf10c8383bc6a010476a18517ee2553b7c40246302cb4be954e7dcb"
+    },
+    {
+      "path": "screenshots/07-config-update.jpg",
+      "source_page": 16,
+      "embedded_image": "Image85.jpg",
+      "sha256": "107a28c5228147b7e58ec91df3f6f05c5b3bfb27173378a51c3a316766767662"
+    },
+    {
+      "path": "screenshots/08-file-create.jpg",
+      "source_page": 17,
+      "embedded_image": "Image88.jpg",
+      "sha256": "742487df2fb2efac6d9462fc004bf3aad251745d407c1e1d633a9fad4ad55966"
+    },
+    {
+      "path": "screenshots/09-network-event.jpg",
+      "source_page": 18,
+      "embedded_image": "Image91.jpg",
+      "sha256": "be81b199e4174b60a8dec26f83e4b7df209c4d6d06b2eb17e54ec9f356c3e09a"
+    },
+    {
+      "path": "screenshots/10-dns-event.jpg",
+      "source_page": 19,
+      "embedded_image": "Image94.jpg",
+      "sha256": "89707aebf5153dd9b182610893d5654ae1041395c78a3f512d117d5630e4f9ba"
+    },
+    {
+      "path": "screenshots/11-timeline.jpg",
+      "source_page": 20,
+      "embedded_image": "Image97.jpg",
+      "sha256": "3da59748742556d9c5419e9c38bc52760963e9d809359fa8c907f4bfbcc69257"
+    },
+    {
+      "path": "screenshots/12-incident-table.jpg",
+      "source_page": 21,
+      "embedded_image": "Image100.jpg",
+      "sha256": "2cc1e425c3d0b98605176f9b15f80c6ee0b2d5222ba2d71ca27a0267c9a2e979"
+    },
+    {
+      "path": "screenshots/13-discovery-validation.png",
+      "source_page": 26,
+      "embedded_image": "Image112.png",
+      "sha256": "70577aa9d58eef34da0609ec3abd587a7eed978490b233527e7aee1759171e18"
+    },
+    {
+      "path": "screenshots/14-temp-script-validation.jpg",
+      "source_page": 26,
+      "embedded_image": "Image113.jpg",
+      "sha256": "198e155d5479ff2bf14a0431e4305a799c994549fe421547c587d24843601a48"
+    },
+    {
+      "path": "screenshots/15-network-validation.png",
+      "source_page": 27,
+      "embedded_image": "Image118.png",
+      "sha256": "882092c245a31cc719ac7d460b863eb319fd27590a2d93cd69ee031909ec12ac"
+    }
+  ]
+}

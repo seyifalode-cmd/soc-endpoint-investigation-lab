@@ -1,0 +1,32 @@
+title: PowerShell Creating Script or Executable in User Temp
+id: 72d913b4-da1f-5447-9cdc-ebb896547dbd
+status: experimental
+description: Detects PowerShell creating executable or script-like files in a user temporary directory.
+author: Oluwaseyi Falode
+date: 2026-09-28
+logsource:
+  product: windows
+  category: file_event
+detection:
+  selection_process:
+    Image|endswith:
+      - '\powershell.exe'
+      - '\pwsh.exe'
+  selection_path:
+    TargetFilename|contains:
+      - '\Temp\'
+      - '\AppData\Local\Temp\'
+  selection_extension:
+    TargetFilename|endswith:
+      - '.exe'
+      - '.dll'
+      - '.ps1'
+      - '.bat'
+      - '.vbs'
+  condition: selection_process and selection_path and selection_extension
+falsepositives:
+  - Approved script staging and software installation
+level: medium
+tags:
+  - attack.execution
+  - attack.t1059.001

@@ -1,0 +1,22 @@
+title: PowerShell Outbound Network Connection
+id: b69c7ac0-b8fb-5f6e-8201-c162b2e546a3
+status: experimental
+description: Detects outbound network connections initiated by PowerShell.
+author: Oluwaseyi Falode
+date: 2026-09-28
+logsource:
+  product: windows
+  category: network_connection
+detection:
+  selection:
+    Image|endswith:
+      - '\powershell.exe'
+      - '\pwsh.exe'
+    Initiated: 'true'
+  condition: selection
+falsepositives:
+  - Approved PowerShell web requests and management automation
+level: medium
+tags:
+  - attack.execution
+  - attack.t1059.001

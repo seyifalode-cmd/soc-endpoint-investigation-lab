@@ -1,0 +1,253 @@
+[
+  {
+    "name": "direct PowerShell to whoami",
+    "rule": "powershell-discovery",
+    "event": {
+      "EventID": 1,
+      "ParentImage": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "Image": "C:\\Windows\\System32\\whoami.exe"
+    },
+    "expected": true
+  },
+  {
+    "name": "direct PowerShell to ipconfig",
+    "rule": "powershell-discovery",
+    "event": {
+      "EventID": 1,
+      "ParentImage": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "Image": "C:\\Windows\\System32\\ipconfig.exe"
+    },
+    "expected": true
+  },
+  {
+    "name": "pwsh parent",
+    "rule": "powershell-discovery",
+    "event": {
+      "EventID": 1,
+      "ParentImage": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+      "Image": "C:\\Windows\\System32\\whoami.exe"
+    },
+    "expected": true
+  },
+  {
+    "name": "case-insensitive paths",
+    "rule": "powershell-discovery",
+    "event": {
+      "EventID": 1,
+      "ParentImage": "C:\\WINDOWS\\SYSTEM32\\WINDOWSPOWERSHELL\\V1.0\\POWERSHELL.EXE",
+      "Image": "C:\\Windows\\System32\\whoami.exe"
+    },
+    "expected": true
+  },
+  {
+    "name": "CMD immediate parent does not match",
+    "rule": "powershell-discovery",
+    "event": {
+      "EventID": 1,
+      "ParentImage": "C:\\Windows\\System32\\cmd.exe",
+      "Image": "C:\\Windows\\System32\\whoami.exe"
+    },
+    "expected": false
+  },
+  {
+    "name": "Notepad child does not match",
+    "rule": "powershell-discovery",
+    "event": {
+      "EventID": 1,
+      "ParentImage": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "Image": "C:\\Windows\\notepad.exe"
+    },
+    "expected": false
+  },
+  {
+    "name": "missing parent",
+    "rule": "powershell-discovery",
+    "event": {
+      "EventID": 1,
+      "Image": "C:\\Windows\\System32\\whoami.exe"
+    },
+    "expected": false
+  },
+  {
+    "name": "wrong event category",
+    "rule": "powershell-discovery",
+    "event": {
+      "EventID": 11,
+      "ParentImage": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "Image": "C:\\Windows\\System32\\whoami.exe"
+    },
+    "expected": false
+  },
+  {
+    "name": "user Temp script",
+    "rule": "powershell-temp-file",
+    "event": {
+      "EventID": 11,
+      "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "TargetFilename": "C:\\Users\\lab\\AppData\\Local\\Temp\\soc-test.ps1"
+    },
+    "expected": true
+  },
+  {
+    "name": "Windows Temp also matches original broad rule",
+    "rule": "powershell-temp-file",
+    "event": {
+      "EventID": 11,
+      "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "TargetFilename": "C:\\Windows\\Temp\\sample.dll"
+    },
+    "expected": true
+  },
+  {
+    "name": "pwsh executable creation",
+    "rule": "powershell-temp-file",
+    "event": {
+      "EventID": 11,
+      "Image": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+      "TargetFilename": "C:\\Temp\\sample.exe"
+    },
+    "expected": true
+  },
+  {
+    "name": "text file excluded",
+    "rule": "powershell-temp-file",
+    "event": {
+      "EventID": 11,
+      "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "TargetFilename": "C:\\Users\\lab\\AppData\\Local\\Temp\\note.txt"
+    },
+    "expected": false
+  },
+  {
+    "name": "non-Temp path",
+    "rule": "powershell-temp-file",
+    "event": {
+      "EventID": 11,
+      "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "TargetFilename": "C:\\Users\\lab\\Documents\\test.ps1"
+    },
+    "expected": false
+  },
+  {
+    "name": "different creating process",
+    "rule": "powershell-temp-file",
+    "event": {
+      "EventID": 11,
+      "Image": "C:\\Windows\\notepad.exe",
+      "TargetFilename": "C:\\Users\\lab\\AppData\\Local\\Temp\\soc-test.ps1"
+    },
+    "expected": false
+  },
+  {
+    "name": "missing filename",
+    "rule": "powershell-temp-file",
+    "event": {
+      "EventID": 11,
+      "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+    },
+    "expected": false
+  },
+  {
+    "name": "suffix after extension",
+    "rule": "powershell-temp-file",
+    "event": {
+      "EventID": 11,
+      "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "TargetFilename": "C:\\Temp\\file.ps1.txt"
+    },
+    "expected": false
+  },
+  {
+    "name": "PowerShell initiated connection",
+    "rule": "powershell-network",
+    "event": {
+      "EventID": 3,
+      "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "Initiated": "true",
+      "DestinationIp": "192.0.2.10",
+      "DestinationPort": "443"
+    },
+    "expected": true
+  },
+  {
+    "name": "pwsh initiated connection",
+    "rule": "powershell-network",
+    "event": {
+      "EventID": 3,
+      "Image": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+      "Initiated": "true",
+      "DestinationIp": "192.0.2.10",
+      "DestinationPort": "443"
+    },
+    "expected": true
+  },
+  {
+    "name": "destination and port are not restricted",
+    "rule": "powershell-network",
+    "event": {
+      "EventID": 3,
+      "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "Initiated": "true",
+      "DestinationIp": "198.51.100.20",
+      "DestinationPort": "8080"
+    },
+    "expected": true
+  },
+  {
+    "name": "non-initiated connection",
+    "rule": "powershell-network",
+    "event": {
+      "EventID": 3,
+      "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "Initiated": "false",
+      "DestinationIp": "192.0.2.10",
+      "DestinationPort": "443"
+    },
+    "expected": false
+  },
+  {
+    "name": "svchost does not match",
+    "rule": "powershell-network",
+    "event": {
+      "EventID": 3,
+      "Image": "C:\\Windows\\System32\\svchost.exe",
+      "Initiated": "true",
+      "DestinationIp": "192.0.2.10",
+      "DestinationPort": "443"
+    },
+    "expected": false
+  },
+  {
+    "name": "missing initiated",
+    "rule": "powershell-network",
+    "event": {
+      "EventID": 3,
+      "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+    },
+    "expected": false
+  },
+  {
+    "name": "boolean needs explicit backend mapping",
+    "rule": "powershell-network",
+    "event": {
+      "EventID": 3,
+      "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "Initiated": true,
+      "DestinationIp": "192.0.2.10",
+      "DestinationPort": "443"
+    },
+    "expected": false
+  },
+  {
+    "name": "wrong event category for network",
+    "rule": "powershell-network",
+    "event": {
+      "EventID": 22,
+      "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "Initiated": "true",
+      "DestinationIp": "192.0.2.10",
+      "DestinationPort": "443"
+    },
+    "expected": false
+  }
+]
