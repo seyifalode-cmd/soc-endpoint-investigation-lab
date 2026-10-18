@@ -453,4 +453,4 @@ soc-endpoint-investigation-lab/
 
 *Oluwaseyi Michael Falode · Cybersecurity & Cloud Security Engineer · Toronto, ON · September 2026*
 
-[GitHub](https://github.com/seyifalode-cmd) · [LinkedIn](https://www.linkedin.com/in/oluwaseyi-falode/) · [Related project: SOC Identity Investigation](https://github.com/seyifalode-cmd/soc-identity-investigation-lab)
+[GitHub](https://github.com/seyifalode-cmd) · [LinkedIn](https://www.linkedin.com/in/oluwaseyi-falode-bb3b1651/) · [Related project: SOC Identity Investigation](https://github.com/seyifalode-cmd/soc-identity-investigation-lab)
